@@ -1,0 +1,40 @@
+<a routerLink="/cities">Back to City List</a>
+<form (ngSubmit)="editCityById(city.id)">
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td><input name="name" [(ngModel)]="city.name"></td>
+    </tr>
+    <tr>
+      <td>Country:</td>
+      <td>
+        <select name="country" [(ngModel)]="city.country">
+          <option *ngFor="let country of countries" [value]="country.id"
+                  [selected]="country.name === country.name">{{country.name}}</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Area:</td>
+      <td><input name="area" [(ngModel)]="city.area"></td>
+    </tr>
+    <tr>
+      <td>Population:</td>
+      <td><input name="population" [(ngModel)]="city.population"></td>
+    </tr>
+    <tr>
+      <td>GDP:</td>
+      <td><input name="gdp" [(ngModel)]="city.gdp"></td>
+    </tr>
+    <tr>
+      <td>Description:</td>
+      <td><textarea name="description" [(ngModel)]="city.description"></textarea></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button>Edit</button>
+      </td>
+    </tr>
+  </table>
+</form>

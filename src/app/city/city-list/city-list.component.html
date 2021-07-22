@@ -1,0 +1,26 @@
+<style routerLink="city-list.component.css"></style>
+<h1>City List</h1>
+<a routerLink="/cities/create">Creat new city</a>
+<table>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Area</th>
+    <th>Population</th>
+    <th>GDP</th>
+    <th>Description</th>
+    <th colspan="2">Action</th>
+  </tr>
+  <tr *ngFor="let city of cities;index as i">
+    <td>{{i+1}}</td>
+    <td><a routerLink="/cities/detail/{{city.id}}">{{city.name}}</a></td>
+    <td>{{city.country.name}}</td>
+    <td>{{city.area}}</td>
+    <td>{{city.population}}</td>
+    <td>{{city.gdp}}</td>
+    <td>{{city.description}}</td>
+    <td><button routerLink="/cities/edit/{{city.id}}">Edit</button></td>
+    <td><button (click)="deleteById(city.id)">Delete</button></td>
+  </tr>
+</table>
