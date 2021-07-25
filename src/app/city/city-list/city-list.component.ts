@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {City} from '../../model/city';
-import {CityService} from '../../city.service';
+import {CityService} from '../../service/city/city.service';
 import {ActivatedRoute} from '@angular/router';
+import {NotificationService} from '../../service/notification/notification.service';
 
 @Component({
   selector: 'app-city-list',
@@ -10,9 +11,11 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class CityListComponent implements OnInit {
   cities: City[] = [];
+  isDelete = false;
 
   constructor(private cityService: CityService,
-              private activateRoute: ActivatedRoute) {
+              private activateRoute: ActivatedRoute,
+              private notificationService: NotificationService) {
     this.activateRoute.paramMap.subscribe(paraMap => {
       const id = paraMap.get('id');
       this.deleteById(id);
@@ -31,7 +34,8 @@ export class CityListComponent implements OnInit {
 
   deleteById(id) {
     return this.cityService.deleteCityById(id).subscribe(() => {
-      alert('Success');
+      this.isDelete = true;
+      this.notificationService.showSuccessMessage('Delete success');
       this.getAllCity();
     });
   }

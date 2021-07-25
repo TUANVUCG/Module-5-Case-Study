@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {City} from '../../model/city';
-import {CityService} from '../../city.service';
+import {CityService} from '../../service/city/city.service';
 import {ActivatedRoute} from '@angular/router';
-import {CountryService} from '../../country.service';
+import {CountryService} from '../../service/country/country.service';
 import {Country} from '../../model/country';
+import {NotificationService} from '../../service/notification/notification.service';
 
 @Component({
   selector: 'app-city-edit',
@@ -16,7 +17,8 @@ export class CityEditComponent implements OnInit {
 
   constructor(private cityService: CityService,
               private activateRoute: ActivatedRoute,
-              private countryService: CountryService) {
+              private countryService: CountryService,
+              private notificationService: NotificationService) {
     this.activateRoute.paramMap.subscribe(paramMap => {
       const id = paramMap.get('id');
       this.getCityById(id);
@@ -40,7 +42,10 @@ export class CityEditComponent implements OnInit {
 
   editCityById(id) {
     this.cityService.editCityById(id, this.city).subscribe(() => {
-      alert('Success');
-    });
+        this.notificationService.showSuccessMessage('Edit success');
+      },
+      () => {
+        this.notificationService.showFailMessage('Edit fail');
+      });
   }
 }

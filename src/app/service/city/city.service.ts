@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {environment} from '../environments/environment';
+import {environment} from '../../../environments/environment';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {City} from './model/city';
+import {City} from '../../model/city';
 import {Observable} from 'rxjs';
-import {Country} from './model/country';
+import {Country} from '../../model/country';
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -16,7 +16,7 @@ export class CityService {
   }
 
   getAllCity(): Observable<City[]> {
-    return this.http.get<City[]>(`${API_URL}/cities/list`);
+    return this.http.get<City[]>(`${API_URL}/cities`);
   }
 
   createNewCity(city: any): Observable<any> {

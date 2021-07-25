@@ -31,6 +31,11 @@
       <td><textarea name="description" [(ngModel)]="city.description"></textarea></td>
     </tr>
     <tr>
+      <td>Image:</td>
+      <td><input name="image" [(ngModel)]="city.image"></td>
+      <img src="{{city.image}}" style="height: 200px; width: 200px">
+    </tr>
+    <tr>
       <td></td>
       <td>
         <button>Edit</button>

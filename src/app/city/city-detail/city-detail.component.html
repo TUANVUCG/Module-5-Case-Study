@@ -1,28 +1,55 @@
 <h1>City Detail</h1>
-<a routerLink="/cities">Back to City List</a>
-  <table>
-    <tr>
-      <td>Name: </td>
-      <td><input name="name" [(ngModel)]="city.name"></td>
-    </tr>
-    <tr>
-      <td>Country: </td>
-      <td><input name="country" [(ngModel)]="city.country.name"></td>
-    </tr>
-    <tr>
-      <td>Area: </td>
-      <td><input name="area" [(ngModel)]="city.area"></td>
-    </tr>
-    <tr>
-      <td>Population: </td>
-      <td><input name="population" [(ngModel)]="city.population"></td>
-    </tr>
-    <tr>
-      <td>GDP: </td>
-      <td><input name="gdp" [(ngModel)]="city.gdp"></td>
-    </tr>
-    <tr>
-      <td>Description: </td>
-      <td><textarea name="description" [(ngModel)]="city.description"></textarea></td>
-    </tr>
-  </table>
+<div class="container">
+  <div class="view">
+    <form method="post">
+      <div class="page-content page-container" id="page-content">
+        <div class="padding">
+          <div class="row container d-flex justify-content-center">
+            <div class="col-xl-6 col-md-12">
+              <div class="card user-card-full">
+                <div class="row m-l-0 m-r-0">
+                  <div class="col-sm-4 bg-c-lite-green user-profile">
+                    <div class="card-block text-center text-white">
+                      <div class="m-b-25"><img src="{{city.image}}"
+                                               class="img-radius" alt="User-Profile-Image"></div>
+                      <h6 class="f-w-600">{{city.name}}</h6>
+                      <i
+                        class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                    </div>
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="card-block">
+                      <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Name</p>
+                          <h6 class="text-muted f-w-400">{{city.name}}</h6>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Country</p>
+                          <h6 class="text-muted f-w-400">{{city.country.name}}</h6>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Area</p>
+                          <h6 class="text-muted f-w-400">{{city.area}}</h6>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Population</p>
+                          <h6 class="text-muted f-w-400">{{city.population}}</h6>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">GDP</p>
+                          <h6 class="text-muted f-w-400">{{city.gdp}}</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

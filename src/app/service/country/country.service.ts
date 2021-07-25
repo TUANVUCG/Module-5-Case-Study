@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Country} from './model/country';
-import {environment} from '../environments/environment';
+import {Country} from '../../model/country';
+import {environment} from '../../../environments/environment';
 
 const API_URL = `${environment.apiUrl}`;
 
