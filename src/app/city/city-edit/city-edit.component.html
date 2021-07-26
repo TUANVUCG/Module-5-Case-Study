@@ -1,12 +1,12 @@
-<a routerLink="/cities">Back to City List</a>
+<div id="formEdit">
 <form (ngSubmit)="editCityById(city.id)">
   <table>
     <tr>
-      <td>Name:</td>
+      <th>Name:</th>
       <td><input name="name" [(ngModel)]="city.name"></td>
     </tr>
     <tr>
-      <td>Country:</td>
+      <th>Country:</th>
       <td>
         <select name="country" [(ngModel)]="city.country">
           <option *ngFor="let country of countries" [value]="country.id"
@@ -15,31 +15,32 @@
       </td>
     </tr>
     <tr>
-      <td>Area:</td>
+      <th>Area:</th>
       <td><input name="area" [(ngModel)]="city.area"></td>
     </tr>
     <tr>
-      <td>Population:</td>
+      <th>Population:</th>
       <td><input name="population" [(ngModel)]="city.population"></td>
     </tr>
     <tr>
-      <td>GDP:</td>
+      <th>GDP:</th>
       <td><input name="gdp" [(ngModel)]="city.gdp"></td>
     </tr>
     <tr>
-      <td>Description:</td>
+      <th>Description:</th>
       <td><textarea name="description" [(ngModel)]="city.description"></textarea></td>
     </tr>
     <tr>
-      <td>Image:</td>
-      <td><input name="image" [(ngModel)]="city.image"></td>
-      <img src="{{city.image}}" style="height: 200px; width: 200px">
+      <th>Image</th>
+      <td><input type="file" #preview (change)="showPreview($event)"></td>
     </tr>
     <tr>
       <td></td>
-      <td>
+      <th>
         <button>Edit</button>
-      </td>
+      </th>
     </tr>
   </table>
 </form>
+</div>
+<div id="imageEdit"><td><img width="300px" height="300px" [src]="imgSrc" (click)="preview.click()"></td></div>

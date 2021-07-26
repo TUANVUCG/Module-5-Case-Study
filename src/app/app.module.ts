@@ -9,16 +9,21 @@ import {SharedModule} from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import {JwtInterceptor} from './helper/jwt-interceptor';
 import {ErrorInterceptor} from './helper/error-interceptor';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     HttpClientModule,
     ReactiveFormsModule,
     SharedModule

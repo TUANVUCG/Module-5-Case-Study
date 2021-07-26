@@ -12,9 +12,9 @@
     <th>Image</th>
     <th colspan="2">Action</th>
   </tr>
-
   </thead>
   <tbody>
+
   <tr *ngFor="let city of cities;index as i">
     <th scope="row">{{i+1}}</th>
     <td><a routerLink="/cities/detail/{{city.id}}">{{city.name}}</a></td>
