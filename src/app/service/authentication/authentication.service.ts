@@ -28,10 +28,9 @@ export class AuthenticationService {
       }));
   }
 
-  get currentUserValue(){
+  get currentUserValue() {
     return this.currentUserSubject.value;
   }
-
 
 
   logout() {
